@@ -32,7 +32,7 @@ object Bitboard {
 
     /**
      * Creates list with indices of all active bits in bitboard
-     * @return list with indices (0..63) of active bits
+     * @return list with indices (0..63)
      */
     def serialize: List[Int] = bitScanForward match {
       case None => List.empty

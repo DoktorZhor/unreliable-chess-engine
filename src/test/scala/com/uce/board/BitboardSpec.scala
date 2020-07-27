@@ -26,4 +26,15 @@ class BitboardSpec extends AnyFlatSpec {
     assert(Constants.rank8.serialize === List(56, 57, 58, 59, 60, 61, 62, 63))
   }
 
+  "Conversion to binary array" should "always add leading zeros to total length of 64 elements" in {
+    // Since toBinaryString omits leading zeros, we first check that padding is required
+    assert(Constants.fileA.value.toBinaryString.length != 64)
+    assert(Constants.rank1.value.toBinaryString.length != 64)
+    assert(Constants.lightSquares.value.toBinaryString.length != 64)
+    // Then we check that arrays are padded to correct length
+    assert(Constants.fileA.toBinaryArr.length === 64)
+    assert(Constants.rank1.toBinaryArr.length === 64)
+    assert(Constants.lightSquares.toBinaryArr.length === 64)
+  }
+
 }
