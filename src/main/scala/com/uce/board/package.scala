@@ -6,7 +6,7 @@ package object board {
    * Prints provided array as chessboard to console. Assumes each array element has the same length, otherwise
    * the result might be skewed.
    * @param b array representing the board
-   * @param squareLength number of characters in each element, used to adjust file notation
+   * @param squareLength number of characters in each element, used to adjust file notation padding
    */
   def printBoard(b: Array[String], squareLength: Int = 1): Unit = {
 

@@ -30,11 +30,12 @@ class Chessboard(val pieces: Map[PieceType, Bitboard]) {
    * Prints the chessboard to console in human readable format for debugging
    */
   def prettyPrint(): Unit = {
+    val emptySquare = "00"
     val mergedBoard = pieces
-      .map { case (k, v) => v.toBinaryArr.map(c => if(c == '1') k.toString else "00") }
+      .map { case (k, v) => v.toBinaryArr.map(c => if(c == '1') k.toString else emptySquare) }
       .toArray
       .transpose
-      .flatMap(_.distinct.sorted.takeRight(1))
+      .flatMap(_.distinct.sorted.takeRight(1)) // Requires emptySquare < any PieceType
 
     printBoard(mergedBoard, 2)
   }
